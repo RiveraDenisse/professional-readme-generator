@@ -14,10 +14,35 @@ function renderLicenseSection(license) {}
 //this is the template for the README file
 function generateMarkdown(data) {
   return `# ${data.title}
+  ![License](https://img.shields.io/badge/License-MIT-orange)
   ## Description
+
   ${data.Description}
 
-`;
+  ## Table of Contents
+
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Credits](#credits)
+  * [License](#license)
+
+  ## Installation
+
+  ${data.Installation}
+
+  ## Usage
+
+  ${data.Usage}
+
+  ## Credits
+
+  ${data.Credits}
+
+  ## License
+
+  ${data.License}
+  
+`
 }
 //to make available inside index.js
 module.exports = generateMarkdown;
