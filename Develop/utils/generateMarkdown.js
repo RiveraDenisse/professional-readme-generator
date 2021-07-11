@@ -99,7 +99,7 @@ function generateMarkdown(data) {
   For any questions, please contact me using the information below:
 
   * Github Profile: [${data.username}](https://github.com/${data.username})
-  * Email me at : [${data.email}](emailto:${data.email})
+  * Email me at : ${data.email}
 `
 };
 //to make available inside index.js
