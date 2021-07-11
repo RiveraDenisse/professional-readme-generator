@@ -9,6 +9,7 @@
 
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Video](#video)
   * [Credits](#credits)
   * [License](#license)
   * [Contributing](#contributing)
@@ -26,6 +27,20 @@
   ## Usage
 
   From the terminal in the directory of this project (*Develop folder*) type _**node index**_ to run the program;then the program will prompt a series of questions in order to generate the README file, answer all questions accordingly. Once the user answers all questions, the program will fill out the README template(located in "generateMarkdown.js" and create a README file using the user's input. If the file is created successfully the program will give a "Your README. md file was generated".
+
+  Example of README file when license is selected
+
+  ![screenshot](./assets/GeneratedREADME.png)
+ 
+  Example of README file when no license is selected
+
+  ![screenshot](./assets/GeneratedREADME_noLicense.png)
+
+  here is a link to a video showing
+
+  ## Video
+
+  A walkthrough video of the application is available [here](https://drive.google.com/file/d/1aOuXstdIdXz93aiuDKL5dS26_diY9t0c/view)
 
   ## Credits
 
