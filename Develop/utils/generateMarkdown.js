@@ -1,13 +1,11 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-const renderLicenseBadge = License => {
+function renderLicenseBadge (License) {
   if (!License){
     return '';
   }
 
-  return `
-    [![License] (https://img.shields.io/badge/License-${License}-orange)]
-  `;
+  return '![License](https://img.shields.io/badge/License-'+ License + '-orange.svg)';
 }
 
 // TODO: Create a function that returns the license link
@@ -33,7 +31,8 @@ const renderLicenseLink = License => {
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
-  * [Questions](#questions)`;
+  * [Questions](#questions)
+  `;
 }
 
 // If there is no license, return an empty string
