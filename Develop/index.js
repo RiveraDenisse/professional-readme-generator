@@ -59,6 +59,20 @@ const questions = [
           }
         }   
     },
+    //here goes the question for licensing (if user chooses no license then it will not ask to choose a license)
+    {
+        type: 'confirm',
+        name: 'confirmLicense',
+        message: 'Would you like to add a license to your project? (this will create a license badge as well)',
+    },
+    //if user types Y to add instructions then the question below will be prompted
+    {
+        type: 'list',
+        name: 'License',
+        message: "Please choose a license to your project from the list below",
+        when: (data) => data.confirmLicense === true,
+        choices: ['MIT', 'Apache2.0', 'GNUGPLv3', 'MozillaPublicLicense2.0', 'TheUnlicense']
+    },
     {
         type: 'confirm',
         name: 'confirmContributing',
@@ -79,7 +93,75 @@ const questions = [
             return false;
           }
         }   
-    }
+    },
+    {
+        type: 'confirm',
+        name: 'confirmTesting',
+        message: 'Would you like to add testing instructions/examples?',
+    },
+    //if user types Y to add instructions then the question below will be prompted
+    {
+        type: 'input',
+        name: 'Testing',
+        message: "Please add testing instructions/examples?",
+        when: (data) => data.confirmTesting === true,
+        validate: TestingInput => {
+          if (TestingInput) {
+            return true;
+          } else {
+            console.log('Please add instructions on how to collaborate');
+            return false;
+          }
+        }
+    },
+    {
+        type: 'confirm',
+        name: 'confirmCredits',
+        message: 'Would you like to list any contributors',
+    },
+    //if user types Y to add instructions then the question below will be prompted
+    {
+        type: 'input',
+        name: 'Credits',
+        message: "Please list the contributors",
+        when: (data) => data.confirmCredits === true,
+        validate: CreditsInput => {
+          if (CreditsInput) {
+            return true;
+          } else {
+            console.log('Please list your contributors');
+            return false;
+          }
+        }
+    },
+    //Questions section
+    {
+        type: 'input',
+        name: 'username',
+        message: 'Please provide your github username',
+        validate: usernameInput => {
+            if (usernameInput) {
+                return true;
+            } else {
+                console.log('Please provide a username');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Please provide your an email to contact you',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please provide a email');
+                return false;
+            }
+        }
+    }      
+
 ];
 
 // TODO: Create a function to write README file

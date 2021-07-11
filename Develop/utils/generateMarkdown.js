@@ -13,7 +13,7 @@ function renderLicenseSection(license) {}
 //this is the template for the README file
 function generateMarkdown(data) {
   return `# ${data.title}
-  ![License](https://img.shields.io/badge/License-MIT-orange)
+  ![License](https://img.shields.io/badge/License-${data.License}-orange)
   ## Description
 
   ${data.Description}
@@ -43,7 +43,17 @@ function generateMarkdown(data) {
 
   ## Contributing
   ${data.Contributing}
+
+  ## Tests
+  ${data.Testing}
+
+  ## Questions
+
+  For any questions, please contact me using the information below:
+
+  * Github Profile: [${data.username}](https://github.com/${data.username})
+  * Email me at : [${data.email}](emailto:${data.email}) with questions about this project
 `
-}
+};
 //to make available inside index.js
 module.exports = generateMarkdown;
