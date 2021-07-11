@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// If there is no license, return an empty string but if there is a license then create a badge based on license
 function renderLicenseBadge (License) {
   if (!License){
     return '';
@@ -8,19 +7,18 @@ function renderLicenseBadge (License) {
   return '![License](https://img.shields.io/badge/License-'+ License + '-orange.svg)';
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-const renderLicenseLink = License => {
-  if (!License){
-    return `
-    ## Table of Contents
+// If user chooses no license, then the table of contents will not show license section
+const renderTableofContents = License => {
+  let notLicense = `## Table of Contents
 
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [Credits](#credits)
-    * [Contributing](#contributing)
-    * [Tests](#tests)
-    * [Questions](#questions)`;
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Credits](#credits)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)`;
+  if (!License){
+    return notLicense;
   }
   return `
   ## Table of Contents
@@ -33,7 +31,7 @@ const renderLicenseLink = License => {
   * [Tests](#tests)
   * [Questions](#questions)
   `;
-}
+};
 
 // If there is no license, return an empty string
 const renderLicenseSection = License => {
@@ -55,7 +53,7 @@ function generateMarkdown(data) {
 
   ${data.Description}
 
- ${renderLicenseLink(data.License)}
+ ${renderTableofContents(data.License)}
   
   ## Installation
 
