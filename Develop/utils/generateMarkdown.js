@@ -1,30 +1,63 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+const renderLicenseBadge = License => {
+  if (!License){
+    return '';
+  }
+
+  return `
+    [![License] (https://img.shields.io/badge/License-${License}-orange)]
+  `;
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+const renderLicenseLink = License => {
+  if (!License){
+    return `
+    ## Table of Contents
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-//this is the template for the README file
-function generateMarkdown(data) {
-  return `# ${data.title}
-  ![License](https://img.shields.io/badge/License-${data.License}-orange)
-  ## Description
-
-  ${data.Description}
-
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Credits](#credits)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [Questions](#questions)`;
+  }
+  return `
   ## Table of Contents
 
   * [Installation](#installation)
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)`;
+}
 
+// If there is no license, return an empty string
+const renderLicenseSection = License => {
+  if (!License){
+    return '';
+  }
+  return `
+  ## License
+
+  ${License}
+`;
+}
+
+//this is the template for the README file
+function generateMarkdown(data) {
+  return `# ${data.title}
+  ${renderLicenseBadge(data.License)}
+  ## Description
+
+  ${data.Description}
+
+ ${renderLicenseLink(data.License)}
+  
   ## Installation
 
   ${data.Installation}
@@ -37,9 +70,7 @@ function generateMarkdown(data) {
 
   ${data.Credits}
 
-  ## License
-
-  ${data.License}
+  ${renderLicenseSection(data.License)}
 
   ## Contributing
   ${data.Contributing}
@@ -52,7 +83,7 @@ function generateMarkdown(data) {
   For any questions, please contact me using the information below:
 
   * Github Profile: [${data.username}](https://github.com/${data.username})
-  * Email me at : [${data.email}](emailto:${data.email}) with questions about this project
+  * Email me at : [${data.email}](emailto:${data.email})
 `
 };
 //to make available inside index.js

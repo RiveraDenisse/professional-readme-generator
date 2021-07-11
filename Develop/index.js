@@ -74,17 +74,9 @@ const questions = [
         choices: ['MIT', 'Apache2.0', 'GNUGPLv3', 'MozillaPublicLicense2.0', 'TheUnlicense']
     },
     {
-        type: 'confirm',
-        name: 'confirmContributing',
-        message: 'Would you like to add instructions for contributing to your project?',
-        //default: "If your would like to contribute please follow the [Contributor Covenant](https://www.contributor-covenant.org/)"
-    },
-    //if user types Y to add instructions then the question below will be prompted
-    {
         type: 'input',
         name: 'Contributing',
         message: "Please add instructions for contributing to your project",
-        when: (data) => data.confirmContributing === true,
         validate: ContributingInput => {
           if (ContributingInput) {
             return true;
@@ -95,16 +87,9 @@ const questions = [
         }   
     },
     {
-        type: 'confirm',
-        name: 'confirmTesting',
-        message: 'Would you like to add testing instructions/examples?',
-    },
-    //if user types Y to add instructions then the question below will be prompted
-    {
         type: 'input',
         name: 'Testing',
         message: "Please add testing instructions/examples?",
-        when: (data) => data.confirmTesting === true,
         validate: TestingInput => {
           if (TestingInput) {
             return true;
@@ -115,16 +100,9 @@ const questions = [
         }
     },
     {
-        type: 'confirm',
-        name: 'confirmCredits',
-        message: 'Would you like to list any contributors',
-    },
-    //if user types Y to add instructions then the question below will be prompted
-    {
         type: 'input',
         name: 'Credits',
         message: "Please list the contributors",
-        when: (data) => data.confirmCredits === true,
         validate: CreditsInput => {
           if (CreditsInput) {
             return true;
